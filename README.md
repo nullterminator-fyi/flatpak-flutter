@@ -238,13 +238,13 @@ If build issues remain then [an issues](https://github.com/TheAppgineer/flatpak-
 
 ## Setup
 ### Docker
-The recommended setup is to use the Docker image.
+The recommended setup is to use the Docker image with `podman`.
 
-    docker run --rm -v "$PWD":/usr/src/flatpak -u `id -u`:`id -g` theappgineer/flatpak-flutter:latest
+    docker run --rm -v "$PWD":/usr/src/flatpak -userns=keep-id theappgineer/flatpak-flutter:latest
 
 An alias can be defined to get a clean command line (`.bashrc`):
 
-    alias flatpak-flutter='docker run --rm -v "$PWD":/usr/src/flatpak -u `id -u`:`id -g` theappgineer/flatpak-flutter:latest'
+    docker flatpak-flutter='docker run --rm -v "$PWD":/usr/src/flatpak -userns=keep-id theappgineer/flatpak-flutter:latest'
 
 Basic usage:
 
